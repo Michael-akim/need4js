@@ -5,9 +5,10 @@ const score = document.querySelector('.score'),
 	start = document.querySelector('.start'),
 	gameArea = document.querySelector('.gameArea'),
 	car = document.createElement('div'),
-	btns = document.querySelectorAll('.btn');
+	btns = document.querySelectorAll('.btn'),
+    stopButton = document.querySelector('.stop');
 
-const music = new Audio('../audio/audio.mp3');
+const music = new Audio('audio/audio.mp3');
 
 
 car.classList.add('car');
@@ -92,7 +93,7 @@ function startGame(event) {
 		enemy.style.top = enemy.y + 'px';
 		enemy.style.background = `
             transparent
-            url(../img/enemy${getRandomEnemy(MAX_ENEMY)}.png)
+            url(img/enemy${getRandomEnemy(MAX_ENEMY)}.png)
             center / contain
             no-repeat`;
 		gameArea.append(enemy);
@@ -146,6 +147,10 @@ function playGame() {
 		music.pause();
 		btns.forEach(btn => btn.disabled = false);
 	}
+}
+
+function stopMusic() {
+    music.pause();
 }
 
 function startRun(event) {
@@ -208,5 +213,6 @@ function moveEnemy() {
 
 
 start.addEventListener('click', startGame);
+stopButton.addEventListener('click', stopMusic);
 document.addEventListener('keydown', startRun);
 document.addEventListener('keyup', stopRun);

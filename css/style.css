@@ -85,6 +85,16 @@ table {
     padding: 5px 15px;
 }
 
+.stop {
+    font: inherit;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 15px;
+    margin-left: 60px;
+}
+
 .btn:disabled {
     background-color: #ccc;
     color: #ddd;
